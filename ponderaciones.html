@@ -3,61 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Evau</title>
+  <title>Calculadora de EvAU 2025 - Consulta Ponderaciones por Universidad</title>
+  <meta name="description" content="Calculadora EvAU 2025. Consulta las ponderaciones de todas las universidades públicas de España para la Fase Voluntaria de Selectividad/PAU.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <header>
-    <div class="titulo" >Calculadora Evau</div>
-    <nav>
+    <h1>Calculadora EvAU 2025</h1>
+    <p>Consulta las ponderaciones de todas las universidades públicas de España para la Fase Voluntaria de la Selectividad / PAU</p>
+    <nav aria-label="Menú principal">
       <a href="calculadora.html">Calculadora</a>
-      <a href="ponderaciones.html">Ponderaciones</a>
+      <a href="ponderaciones.html" class="activo">Ponderaciones</a>
       <a href="examenes.html">Exámenes</a>
     </nav>
   </header>
+
   <main>
-    <section class="contenido">
-      <p>A continuación puedes consultar las tablas de ponderación para la Fase Voluntaria de la Selectividad / PAU de cada una de las universidades que hay en España para el acceso al curso 2025-2026.</p>
-      <label for="comunidades">Introduce tu comunidad autonoma</label>
-      <select id="comunidades">
-        <option value="andalucia">Andalucia</option>
-        <option value="aragon">Aragon</option>
-        <option value="asturias">Asturias</option>
-        <option value="cantabria">Cantabria</option>
-        <option value="castilla_la_mancha">Castilla La Mancha</option>
-        <option value="castilla_y_leon">Castilla y León</option>
-        <option value="catalunya">Cataluña</option>
-        <option value="comunidad_valenciana">Comunidad Valenciana</option>
-        <option value="extremadura">Extremadura</option>
-        <option value="galicia">Galicia</option>
-        <option value="islas_baleares">Islas Baleares</option>
-        <option value="islas_canarias">Islas Canarias</option>
-        <option value="la_rioja">La Rioja</option>
-        <option value="madrid">Madrid</option>
-        <option value="murcia">Murcia</option>
-        <option value="navarra">Navarra</option>
-        <option value="pais_vasco">Pais Vasco</option>
-        
-      </select>
-
-      <button id="boton">Mostrar Ponderaciones</button>
+    <section class="contenido" aria-labelledby="titulo-comunidad">
+      <h2 id="titulo-comunidad">Selecciona tu Comunidad Autónoma</h2>
+      <p>Elige tu comunidad para ver las universidades y sus PDFs de ponderaciones:</p>
+      <div class="campo">
+        <label for="comunidades">Comunidad Autónoma</label>
+        <select id="comunidades">
+          <option value="" selected disabled>-- Elige tu comunidad --</option>
+          <option value="Andalucia">Andalucia</option>
+          <option value="Aragon">Aragon</option>
+          <option value="Asturias">Asturias</option>
+          <option value="Cantabria">Cantabria</option>
+          <option value="Castilla_la_Mancha">Castilla La Mancha</option>
+          <option value="Castilla_y_Leon">Castilla y León</option>
+          <option value="Catalunya">Cataluña</option>
+          <option value="Comunidad_Valenciana">Comunidad Valenciana</option>
+          <option value="Extremadura">Extremadura</option>
+          <option value="Galicia">Galicia</option>
+          <option value="Islas_Baleares">Islas Baleares</option>
+          <option value="Islas_Canarias">Islas Canarias</option>
+          <option value="La_Rioja">La Rioja</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Murcia">Murcia</option>
+          <option value="Navarra">Navarra</option>
+          <option value="Pais_Vasco">Pais Vasco</option>
+        </select>
+        <button id="boton">Mostrar Ponderaciones</button>
+      </div>
     </section>
-    <section id="ponderaciones">
-      <p>Los pdfs contienen las tablas de ponderaciones de todas las universidades publicas de...</p>
-      <iframe 
-  src="https://calculadoraevau.netlify.app/Ponderaciones/Asturias/Asturias.pdf"
-  width="100%" 
-  height="800px"
-  style="border:none;">
-</iframe>
 
-
+    <section id="ponderaciones" aria-live="polite">
+      <p>Los PDFs contienen las tablas de ponderaciones de todas las universidades públicas de España para el curso 2025-2026.</p>
+      <div id="resultado"></div>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Calculadora EvAU - Todos los derechos reservados</p>
+  </footer>
+
   <script src="js/ponderaciones.js"></script>
 </body>
 </html>
-
-
-
