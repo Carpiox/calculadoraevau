@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora EvAU / EBAU | Calcular nota de acceso y admisión</title>
-  <meta name="description" content="Calculadora EvAU / EBAU online gratuita para saber tu nota de acceso y admisión a la universidad. Introduce tus notas de Bachillerato y EvAU para conocer tu nota final sobre 10 o sobre 14 puntos.">
-  <meta name="keywords" content="calculadora evau, calculadora ebau, nota evau, nota ebau, nota de acceso universidad, nota de admisión, ponderaciones evau, selectividad 2025, notas universidad">
+  <title>Calculadora EvAU / EBAU 2026 - Nota de Acceso y Admisión</title>
+  <meta name="description" content="Calculadora EvAU / EBAU 2025 para calcular tu nota de acceso y admisión a la universidad. Introduce tus notas y obtén tu nota final sobre 10 o 14 puntos.">
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!-- CABECERA -->
   <header>
-    <div class="titulo">
-      <h1>Calculadora EvAU / EBAU</h1>
-      <p>Calcula tu nota de acceso y admisión a la universidad fácilmente</p>
-    </div>
-    <nav>
+    <h1><a href="index.html">Calculadora EvAU 2026</a></h1>
+    <p>Calcula tu nota de acceso y admisión a la universidad fácilmente</p>
+    <nav aria-label="Menú principal">
       <a href="calculadora.html" class="activo">Calculadora</a>
       <a href="ponderaciones.html">Ponderaciones</a>
       <a href="examenes.html">Exámenes</a>
@@ -26,28 +25,43 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <!-- SECCIÓN 1 -->
-    <section class="calculadora">
-      <h2>Nota media de Bachillerato</h2>
+    <!-- Nota Media Bachillerato -->
+    <section>
+      <h2>Nota Media de Bachillerato</h2>
       <div class="campo">
         <label for="mediaBach">Introduce tu nota media de Bachillerato:</label>
         <input type="number" id="mediaBach" placeholder="Ej: 8.4" min="0" max="10" step="0.1">
       </div>
     </section>
 
-    <!-- SECCIÓN 2 -->
-    <section class="faseObligatoria">
+    <!-- Fase Obligatoria -->
+    <section>
       <h2>Fase Obligatoria</h2>
       <p>Introduce las notas de las asignaturas comunes de la EvAU:</p>
 
-      <div class="campo"><label for="lengua">Lengua Castellana y Literatura:</label><input type="number" id="lengua" placeholder="Ej: 9.5" min="0" max="10" step="0.1"></div>
-      <div class="campo"><label for="historia">Historia de España:</label><input type="number" id="historia" placeholder="Ej: 8.8" min="0" max="10" step="0.1"></div>
-      <div class="campo"><label for="ingles">Lengua Extranjera:</label><input type="number" id="ingles" placeholder="Ej: 7.9" min="0" max="10" step="0.1"></div>
-      <div class="campo"><label for="optativa">Troncal de modalidad (Optativa):</label><input type="number" id="optativa" placeholder="Ej: 6.6" min="0" max="10" step="0.1"></div>
+      <div class="campo">
+        <label for="lengua">Lengua Castellana y Literatura:</label>
+        <input type="number" id="lengua" placeholder="Ej: 9.5" min="0" max="10" step="0.1">
+      </div>
+
+      <div class="campo">
+        <label for="historia">Historia de España:</label>
+        <input type="number" id="historia" placeholder="Ej: 8.8" min="0" max="10" step="0.1">
+      </div>
+
+      <div class="campo">
+        <label for="ingles">Lengua Extranjera:</label>
+        <input type="number" id="ingles" placeholder="Ej: 7.9" min="0" max="10" step="0.1">
+      </div>
+
+      <div class="campo">
+        <label for="optativa">Troncal de modalidad:</label>
+        <input type="number" id="optativa" placeholder="Ej: 6.6" min="0" max="10" step="0.1">
+      </div>
     </section>
 
-    <!-- SECCIÓN 3 -->
-    <section class="faseVoluntaria">
+    <!-- Fase Voluntaria -->
+    <section>
       <h2>Fase Voluntaria</h2>
       <p>Introduce tus dos materias voluntarias junto a su ponderación (0.1 o 0.2).</p>
       <a href="ponderaciones.html" title="Ver cuánto te pondera cada asignatura">¿No sabes cuánto te ponderan?</a>
@@ -55,68 +69,58 @@
       <div class="campo">
         <h3>Materia 1</h3>
         <label for="ponderacion1">Ponderación:</label>
-        <input type="number" id="ponderacion1" min="0.1" max="0.2" step="0.1" placeholder="0.1">
+        <input type="number" id="ponderacion1" min="0.1" max="0.2" step="0.1" placeholder="0.2">
         <label for="notaPonderacion1">Nota:</label>
-        <input type="number" id="notaPonderacion1" min="0" max="10" step="0.1" placeholder="8">
+        <input type="number" id="notaPonderacion1" min="0" max="10" step="0.1" placeholder="8.5">
       </div>
 
       <div class="campo">
         <h3>Materia 2</h3>
         <label for="ponderacion2">Ponderación:</label>
-        <input type="number" id="ponderacion2" min="0.1" max="0.2" step="0.1" placeholder="0.2">
+        <input type="number" id="ponderacion2" min="0.1" max="0.2" step="0.1" placeholder="0.1">
         <label for="notaPonderacion2">Nota:</label>
         <input type="number" id="notaPonderacion2" min="0" max="10" step="0.1" placeholder="9">
       </div>
     </section>
 
-    <!-- RESULTADOS -->
-    <section class="resultado">
+    <!-- Resultado -->
+    <section>
       <h2>Resultado Final</h2>
       <button id="calcular">Calcular Nota Final</button>
 
       <div class="salida">
-        <p><strong>Nota calculada:</strong> <span id="notaCalculada">-</span></p>
+        <p><strong>Nota de acceso (sobre 10):</strong> <span id="notaAcceso">-</span></p>
+        <p><strong>Nota de admisión (sobre 14):</strong> <span id="notaAdmision">-</span></p>
       </div>
     </section>
 
-    <!-- EXPLICACIÓN DETALLADA -->
-    <section class="explicacion">
+    <!-- Explicación -->
+    <section>
       <h2>¿Cómo se calcula la nota EvAU / EBAU?</h2>
 
-      <h3>🔹 Nota sobre 10 (Nota de Acceso)</h3>
-      <p>
-        La <strong>nota de acceso a la universidad</strong> combina tu nota media de Bachillerato (60%) y la nota media de la fase obligatoria de la EvAU (40%). Es la nota base que te permite acceder a la universidad.
-      </p>
+      <h3>🔹 Nota de acceso (sobre 10)</h3>
+      <p>Se calcula como <strong>0.6 × Nota de Bachillerato + 0.4 × Fase Obligatoria</strong>.</p>
       <div class="ejemplo">
         Ejemplo: (0.6 × 8.5) + (0.4 × 7.5) = <strong>8.1 /10</strong>
       </div>
 
-      <h3>🔹 Nota sobre 14 (Nota de Admisión)</h3>
-      <p>
-        La <strong>nota de admisión</strong> se calcula sumando a la nota de acceso las ponderaciones de tus materias voluntarias, según el grado que elijas.  
-        Cada materia pondera entre 0.1 y 0.2 puntos, y se eligen las dos mejores notas.
-      </p>
+      <h3>🔹 Nota de admisión (sobre 14)</h3>
+      <p>Se añade la ponderación de las dos mejores materias de la Fase Voluntaria.</p>
       <div class="ejemplo">
         Ejemplo: 8.1 + (9×0.2) + (8×0.1) = <strong>10.9 /14</strong>
       </div>
 
-      <h3>📘 Consejos para mejorar tu nota EvAU</h3>
       <ul>
-        <li>Consulta las <a href="ponderaciones.html">ponderaciones por universidad y grado</a> para elegir tus optativas más rentables.</li>
-        <li>Simula distintos escenarios con nuestra calculadora antes de la convocatoria.</li>
-        <li>Practica con <a href="examenes.html">exámenes de años anteriores</a> para conocer el formato real.</li>
+        <li>Consulta las <a href="ponderaciones.html">ponderaciones por universidad</a>.</li>
+        <li>Prueba distintas combinaciones para ver cómo mejora tu nota.</li>
+        <li>Practica con <a href="examenes.html">exámenes reales</a>.</li>
       </ul>
-
-      <p>
-        Recuerda: tu <strong>nota de Bachillerato</strong> sigue siendo clave, pero la fase voluntaria puede marcar la diferencia entre entrar o no en la carrera que sueñas.  
-        ¡Calcula, prueba y planifica tu mejor resultado! 🎓
-      </p>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA -->
+  <!-- PIE -->
   <footer>
-    <p>© 2025 Calculadora EvAU | Herramienta educativa no oficial para estudiantes de Bachillerato. Diseñada para ayudarte a calcular tu nota de acceso y admisión a la universidad.</p>
+    <p>© 2026 Calculadora EvAU | Herramienta educativa no oficial.</p>
   </footer>
 
   <script src="js/calculadora.js"></script>
