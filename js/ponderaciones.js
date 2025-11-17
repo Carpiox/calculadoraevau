@@ -130,17 +130,24 @@
     lista.forEach(universidad => {
         //Creo un div para posteriormente mostrar datos
         let div = document.createElement("div");
-        div.style.textAlign= "center";
-        div.style.paddingBottom = "10%";
+        div.style.textAlign = "center";
+        div.style.padding = "20px";
+        div.style.margin = "20px auto";
+        div.style.border = "2px solid #ccc"; // grosor + color
+        div.style.borderRadius = "15px";
+        div.style.maxWidth = "600px"; // opcional: ancho máximo para mejor lectura
+        div.style.backgroundColor = "#fafafa"; // fondo claro para resaltar
+        div.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)"; // sombra suave
 
         let nombre = document.createElement("strong");
         nombre.style.display = "block"; // fuerza a ocupar línea completa
-nombre.style.marginBottom = "10px"; // espacio antes del botón
+        nombre.style.marginBottom = "15px"; // espacio antes del botón
         nombre.textContent = universidad.nombre;
         div.appendChild(nombre);
 
         let botonPDF = document.createElement("button");
         botonPDF.textContent = "Mostrar PDF";
+        botonPDF.style.marginBottom = "20px";
         div.appendChild(botonPDF);
 
         let iframeContenedor = document.createElement("div");
