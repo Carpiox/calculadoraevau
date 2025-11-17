@@ -21,5 +21,110 @@
       <a href="examenes.html" class="activo">Exámenes</a>
     </nav>
   </header>
+
+  <!--Contenido 1asignatura 2comunidad 3anyo -->
+  <main>
+    <section class="contenido">
+      <h2>Obten los ultimos examenes oficiales de la EvAU</h2>
+      <p>Introduce la asignatura</p>
+      <div class="campo">
+        <label for="asignatura">Asignatura</label>
+<input list="lista-asignatura" id="asignatura" name="asignatura"
+       placeholder="Escribe para buscar..." autocomplete="off">
+
+<datalist id="lista-asignatura">
+  <option value="Aleman">
+  <option value="Analisis Musical">
+  <option value="Anatomia aplicada">
+  <option value="Artes escenicas">
+  <option value="Biologia">
+  <option value="Ciencias Generales">
+  <option value="Ciencia de la tierra y medioambientelaes">
+  <option value="Coro y Tecnical Vocal">
+  <option value="Cultura Audiovisual">
+  <option value="Dibujo Artistico II">
+  <option value="Dibujo Tecnico aplicado a las artes plasticas y al Diseño II">
+  <option value="Dibujo Tecnico II">
+  <option value="Diseño">
+  <option value="Economia de la Empresa">
+  <option value="Electrotecnia">
+  <option value="Empresa y Diseño de Modelos de Negocio">
+  <option value="Francés">
+  <option value="Fundamentos Artísticos">
+  <option value="Fundamentos del Arte">
+  <option value="Física">
+  <option value="Geografía">
+  <option value="Geología y Ciencias Ambientales">
+  <option value="Griego">    
+  <option value="Historia de España">
+  <option value="Historia de la Filosofía">
+  <option value="Historia de la Música y de la Danza">
+  <option value="Historia del Arte">
+  <option value="Imagen">
+  <option value="Inglés">    
+  <option value="Italiano">
+  <option value="Latín II">
+  <option value="Lengua Castellana y Literatura">
+  <option value="Lengua Catalana y Literatura">
+  <option value="Lengua Gallega y Literatura">
+  <option value="Lengua Vasca y Literatura">  
+  <option value="Lengua y Literatura (Valenciano)">
+  <option value="Lenguaje y Práctica Musical">
+  <option value="Literatura Castellana">
+  <option value="Literatura Catalana">
+  <option value="Literatura Dramática">
+  <option value="Literatura Universal">
+  <option value="Matemáticas Aplicadas a las Ciencias Sociales">
+  <option value="Matemáticas II">
+  <option value="Mecánica">
+  <option value="Movimientos Culturales y Artísticos">
+  <option value="Portugués">
+  <option value="Química">
+  <option value="Tecnología Industrial">
+  <option value="Tecnología e Ingeniería">
+  <option value="Técnicas de Expresión Gráfico Plástica">
+</datalist>
+</div>
+<div class="campo">
+<p>Introduce la comunidad autonoma</p>
+<label for="comunidad">Comunidad Autónoma</label>
+<input list="lista-comunidad" id="comunidad" name="comunidad"placeholder="Escribe para buscar..." autocomplete="off">
+<datalist id="lista-comunidad">
+          <option value="Andalucia">
+          <option value="Aragon">
+          <option value="Asturias">
+          <option value="Cantabria">
+          <option value="Castilla_la_Mancha">
+          <option value="Castilla_y_Leon">
+          <option value="Catalunya">Cataluña</option>
+          <option value="Comunidad_Valenciana">Comunidad Valenciana</option>
+          <option value="Extremadura">Extremadura</option>
+          <option value="Galicia">Galicia</option>
+          <option value="Islas_Baleares">Islas Baleares</option>
+          <option value="Islas_Canarias">Islas Canarias</option>
+          <option value="La_Rioja">La Rioja</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Murcia">Murcia</option>
+          <option value="Navarra">Navarra</option>
+          <option value="Pais_Vasco">Pais Vasco</option>
+</datalist>
+</div>
+<div class="campo">
+  <p>Introduce el año</p>
+  <label for="anyo">Año</label>
+  <select id="anyo">
+  <option value="" selected disabled>-- Año --</option>
+  <option value="2025">2025</option>
+  <option value="2024">2024</option>
+  <option value="2023">2023</option>
+  </select>
+
+</div>
+<button type="button" id="boton">Mostrar examenes</button>
+
+<div id="resultado"></div>
+
+    </section>
+  </main>
 </body>
 </html>
