@@ -100,8 +100,16 @@ h2 {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.8rem;
-  text-align: center;
+  align-items: center;
+  
 }
+
+.datos {
+  width: 80px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
 
 .campo label {
   font-weight: 600;

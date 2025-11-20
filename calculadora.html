@@ -30,7 +30,7 @@
       <h2>Nota Media de Bachillerato</h2>
       <div class="campo">
         <label for="mediaBach">Introduce tu nota media de Bachillerato:</label>
-        <input type="number" id="mediaBach" placeholder="Ej: 8.4" min="0" max="10" step="0.1">
+        <input type="number" class="datos" id="mediaBach" placeholder="Ej: 8.4" min="0" max="10" step="0.1">
       </div>
     </section>
 
@@ -41,22 +41,22 @@
 
       <div class="campo">
         <label for="lengua">Lengua Castellana y Literatura:</label>
-        <input type="number" id="lengua" placeholder="Ej: 9.5" min="0" max="10" step="0.1">
+        <input type="number" class="datos" id="lengua" placeholder="Ej: 9.5" min="0" max="10" step="0.1">
       </div>
 
       <div class="campo">
         <label for="historia">Historia de España:</label>
-        <input type="number" id="historia" placeholder="Ej: 8.8" min="0" max="10" step="0.1">
+        <input type="number" class="datos" id="historia" placeholder="Ej: 8.8" min="0" max="10" step="0.1">
       </div>
 
       <div class="campo">
         <label for="ingles">Lengua Extranjera:</label>
-        <input type="number" id="ingles" placeholder="Ej: 7.9" min="0" max="10" step="0.1">
+        <input type="number" class="datos" id="ingles" placeholder="Ej: 7.9" min="0" max="10" step="0.1">
       </div>
 
       <div class="campo">
         <label for="optativa">Troncal de modalidad:</label>
-        <input type="number" id="optativa" placeholder="Ej: 6.6" min="0" max="10" step="0.1">
+        <input type="number" class="datos" id="optativa" placeholder="Ej: 6.6" min="0" max="10" step="0.1">
       </div>
     </section>
 
@@ -69,17 +69,23 @@
       <div class="campo">
         <h3>Materia 1</h3>
         <label for="ponderacion1">Ponderación:</label>
-        <input type="number" id="ponderacion1" min="0.1" max="0.2" step="0.1" placeholder="0.2">
+        <select id="ponderacion1">
+          <option value="0.1">0.1</option>
+          <option value="0.2">0.2</option>
+        </select>
         <label for="notaPonderacion1">Nota:</label>
-        <input type="number" id="notaPonderacion1" min="0" max="10" step="0.1" placeholder="8.5">
+        <input type="number" class="datos" id="notaPonderacion1" min="0" max="10" step="0.1" placeholder="8.5">
       </div>
 
       <div class="campo">
         <h3>Materia 2</h3>
         <label for="ponderacion2">Ponderación:</label>
-        <input type="number" id="ponderacion2" min="0.1" max="0.2" step="0.1" placeholder="0.1">
+        <select id="ponderacion2">
+          <option value="0.1">0.1</option>
+          <option value="0.2">0.2</option>
+        </select>
         <label for="notaPonderacion2">Nota:</label>
-        <input type="number" id="notaPonderacion2" min="0" max="10" step="0.1" placeholder="9">
+        <input type="number" class="datos" id="notaPonderacion2" min="0" max="10" step="0.1" placeholder="9">
       </div>
     </section>
 
