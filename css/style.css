@@ -244,3 +244,26 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* ------------------ ERRORES DE INPUT ------------------ */
+.mensaje-error {
+  color: red;
+  font-size: 13px;
+  margin-top: -6px;
+  margin-bottom: 10px;
+  display: none;
+  text-align: center;
+}
+
+/* Borde rojo cuando el input tiene error */
+.datos.error {
+  border: 2px solid red;
+  background-color: #ffecec;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .mensaje-error {
+    font-size: 12px;
+  }
+}

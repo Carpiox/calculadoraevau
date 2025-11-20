@@ -30,7 +30,8 @@
       <h2>Nota Media de Bachillerato</h2>
       <div class="campo">
         <label for="mediaBach">Introduce tu nota media de Bachillerato:</label>
-        <input type="number" class="datos" id="mediaBach" placeholder="Ej: 8.4" min="0" max="10" step="0.1">
+        <input type="text" class="datos" id="mediaBach" placeholder="Ej: 8.4" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
     </section>
 
@@ -41,22 +42,26 @@
 
       <div class="campo">
         <label for="lengua">Lengua Castellana y Literatura:</label>
-        <input type="number" class="datos" id="lengua" placeholder="Ej: 9.5" min="0" max="10" step="0.1">
+        <input type="text" class="datos" id="lengua" placeholder="Ej: 9.5"  oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="historia">Historia de España:</label>
-        <input type="number" class="datos" id="historia" placeholder="Ej: 8.8" min="0" max="10" step="0.1">
+        <input type="text" class="datos" id="historia" placeholder="Ej: 8.8"  oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="ingles">Lengua Extranjera:</label>
-        <input type="number" class="datos" id="ingles" placeholder="Ej: 7.9" min="0" max="10" step="0.1">
+        <input type="text" class="datos" id="ingles" placeholder="Ej: 7.9" step="0.1" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="optativa">Troncal de modalidad:</label>
-        <input type="number" class="datos" id="optativa" placeholder="Ej: 6.6" min="0" max="10" step="0.1">
+        <input type="text" class="datos" id="optativa" placeholder="Ej: 6.6" step="0.1" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
     </section>
 
@@ -74,7 +79,8 @@
           <option value="0.2">0.2</option>
         </select>
         <label for="notaPonderacion1">Nota:</label>
-        <input type="number" class="datos" id="notaPonderacion1" min="0" max="10" step="0.1" placeholder="8.5">
+        <input type="number" class="datos" id="notaPonderacion1" placeholder="8.5" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
@@ -85,7 +91,8 @@
           <option value="0.2">0.2</option>
         </select>
         <label for="notaPonderacion2">Nota:</label>
-        <input type="number" class="datos" id="notaPonderacion2" min="0" max="10" step="0.1" placeholder="9">
+        <input type="number" class="datos" id="notaPonderacion2" step="0.1" placeholder="9" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
     </section>
 

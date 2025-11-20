@@ -1,5 +1,38 @@
 let calcular = document.getElementById("calcular");
 
+function validarNumero(input){
+  // El span está justo después del input
+  let mensaje = input.nextElementSibling;
+
+  let valor = input.value;
+
+  // Reset
+  mensaje.style.display = "none";
+  mensaje.textContent = "";
+
+  if (valor === "") return;
+
+  let num = parseFloat(valor);
+
+  // Rango permitido
+  if (num < 5 || num > 10){
+    mensaje.textContent = "El valor debe estar entre 5 y 10.";
+    mensaje.style.display = "inline";
+    return;
+  }
+
+  // Máximo 2 decimales
+  if (valor.includes(".")){
+    let partes = valor.split(".");
+    if (partes[1].length > 2){
+      mensaje.textContent = "Máximo 2 decimales.";
+      mensaje.style.display = "inline";
+    }
+  }
+}
+
+
+
 calcular.addEventListener("click", () => {
 
   function convertirNumero(valor){
