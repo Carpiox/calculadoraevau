@@ -3,18 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora EvAU / EBAU 2026 - Nota de Acceso y Admisión</title>
-  <meta name="description" content="Calculadora EvAU / EBAU 2025 para calcular tu nota de acceso y admisión a la universidad. Introduce tus notas y obtén tu nota final sobre 10 o 14 puntos.">
+
+  <title>Exámenes EvAU / EBAU 2026 – Descarga Oficial por Asignatura y Comunidad</title>
+
+  <meta name="description"
+        content="Descarga exámenes oficiales EvAU / EBAU 2026, 2025 y años anteriores. Elige asignatura, comunidad autónoma y año para obtener los exámenes en PDF listos para practicar.">
+
+  <!-- SEO - Open Graph -->
+  <meta property="og:title" content="Exámenes EvAU / EBAU 2026 - Oficiales PDF">
+  <meta property="og:description" content="Descarga exámenes oficiales de todas las comunidades autónomas.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/evau.jpg">
+
+  <!-- SEO - Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Exámenes EvAU 2026",
+    "description":"Descarga exámenes oficiales de Selectividad / EvAU por comunidad y asignatura.",
+    "url":"https://tusitio.com/examenes.html"
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
+<body>
+
   <!-- CABECERA -->
   <header>
-    <h1>Calculadora <a href="index.html">EvAU </a>2026</h1>
-    <p>Obten los examenes</p>
+    <h1>Exámenes <a href="index.html">EvAU</a> 2026</h1>
+    <p>Descarga exámenes oficiales de Selectividad</p>
+
     <nav aria-label="Menú principal">
       <a href="calculadora.html">Calculadora</a>
       <a href="ponderaciones.html">Ponderaciones</a>
@@ -22,118 +47,145 @@
     </nav>
   </header>
 
-  <!--Contenido 1asignatura 2comunidad 3anyo -->
+  <!-- MIGAS DE PAN (SEO + UX) -->
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ol>
+      <li><a href="index.html">Inicio</a></li>
+      <li>Exámenes EvAU 2026</li>
+    </ol>
+  </nav>
+
   <main>
     <section class="contenido">
-      <h2>Obten los ultimos examenes oficiales de la EvAU</h2>
-      <p>Introduce la asignatura</p>
+      <h2>Descarga los exámenes oficiales de la EvAU</h2>
+      <p>Selecciona la asignatura, comunidad autónoma y año para obtener los exámenes correspondientes.</p>
+
+      <!-- ASIGNATURA -->
       <div class="campo">
         <label for="asignatura">Asignatura</label>
-<input list="lista-asignatura" id="asignatura" name="asignatura"
-       placeholder="Escribe para buscar..." autocomplete="off">
+        <select id="asignatura" name="asignatura">
+          <option value="" selected disabled>-- Selecciona asignatura --</option>
+          <option>Aleman</option>
+          <option>Analisis Musical</option>
+          <option>Anatomia aplicada</option>
+          <option>Artes escenicas</option>
+          <option>Biologia</option>
+          <option>Ciencias Generales</option>
+          <option>Ciencia de la tierra y medioambientelaes</option>
+          <option>Coro y Tecnical Vocal</option>
+          <option>Cultura Audiovisual</option>
+          <option>Dibujo Artistico II</option>
+          <option>Dibujo Tecnico aplicado a las artes plasticas y al Diseño II</option>
+          <option>Dibujo Tecnico II</option>
+          <option>Diseño</option>
+          <option>Economia de la Empresa</option>
+          <option>Electrotecnia</option>
+          <option>Empresa y Diseño de Modelos de Negocio</option>
+          <option>Francés</option>
+          <option>Fundamentos Artísticos</option>
+          <option>Fundamentos del Arte</option>
+          <option>Física</option>
+          <option>Geografía</option>
+          <option>Geología y Ciencias Ambientales</option>
+          <option>Griego</option>
+          <option>Historia de España</option>
+          <option>Historia de la Filosofía</option>
+          <option>Historia de la Música y de la Danza</option>
+          <option>Historia del Arte</option>
+          <option>Imagen</option>
+          <option>Inglés</option>
+          <option>Italiano</option>
+          <option>Latín II</option>
+          <option>Lengua Castellana y Literatura</option>
+          <option>Lengua Catalana y Literatura</option>
+          <option>Lengua Gallega y Literatura</option>
+          <option>Lengua Vasca y Literatura</option>
+          <option>Lengua y Literatura (Valenciano)</option>
+          <option>Lenguaje y Práctica Musical</option>
+          <option>Literatura Castellana</option>
+          <option>Literatura Catalana</option>
+          <option>Literatura Dramática</option>
+          <option>Literatura Universal</option>
+          <option>Matemáticas Aplicadas a las Ciencias Sociales</option>
+          <option>Matemáticas II</option>
+          <option>Mecánica</option>
+          <option>Movimientos Culturales y Artísticos</option>
+          <option>Portugués</option>
+          <option>Química</option>
+          <option>Tecnología Industrial</option>
+          <option>Tecnología e Ingeniería</option>
+          <option>Técnicas de Expresión Gráfico Plástica</option>
+        </select>
+      </div>
 
-<datalist id="lista-asignatura">
-  <option value="Aleman">
-  <option value="Analisis Musical">
-  <option value="Anatomia aplicada">
-  <option value="Artes escenicas">
-  <option value="Biologia">
-  <option value="Ciencias Generales">
-  <option value="Ciencia de la tierra y medioambientelaes">
-  <option value="Coro y Tecnical Vocal">
-  <option value="Cultura Audiovisual">
-  <option value="Dibujo Artistico II">
-  <option value="Dibujo Tecnico aplicado a las artes plasticas y al Diseño II">
-  <option value="Dibujo Tecnico II">
-  <option value="Diseño">
-  <option value="Economia de la Empresa">
-  <option value="Electrotecnia">
-  <option value="Empresa y Diseño de Modelos de Negocio">
-  <option value="Francés">
-  <option value="Fundamentos Artísticos">
-  <option value="Fundamentos del Arte">
-  <option value="Física">
-  <option value="Geografía">
-  <option value="Geología y Ciencias Ambientales">
-  <option value="Griego">    
-  <option value="Historia de España">
-  <option value="Historia de la Filosofía">
-  <option value="Historia de la Música y de la Danza">
-  <option value="Historia del Arte">
-  <option value="Imagen">
-  <option value="Inglés">    
-  <option value="Italiano">
-  <option value="Latín II">
-  <option value="Lengua Castellana y Literatura">
-  <option value="Lengua Catalana y Literatura">
-  <option value="Lengua Gallega y Literatura">
-  <option value="Lengua Vasca y Literatura">  
-  <option value="Lengua y Literatura (Valenciano)">
-  <option value="Lenguaje y Práctica Musical">
-  <option value="Literatura Castellana">
-  <option value="Literatura Catalana">
-  <option value="Literatura Dramática">
-  <option value="Literatura Universal">
-  <option value="Matemáticas Aplicadas a las Ciencias Sociales">
-  <option value="Matemáticas II">
-  <option value="Mecánica">
-  <option value="Movimientos Culturales y Artísticos">
-  <option value="Portugués">
-  <option value="Química">
-  <option value="Tecnología Industrial">
-  <option value="Tecnología e Ingeniería">
-  <option value="Técnicas de Expresión Gráfico Plástica">
-</datalist>
-</div>
-<div class="campo">
-<p>Introduce la comunidad autonoma</p>
-<label for="comunidad">Comunidad Autónoma</label>
-<input list="lista-comunidad" id="comunidad" name="comunidad"placeholder="Escribe para buscar..." autocomplete="off">
-<datalist id="lista-comunidad">
-          <option value="Andalucía">
-          <option value="Aragón">
-          <option value="Asturias">
-          <option value="Cantabria">
-          <option value="Castilla la Mancha">
-          <option value="Castilla y León">
-          <option value="Cataluña">Cataluña</option>
-          <option value="Comunidad Valenciana">Comunidad Valenciana</option>
-          <option value="Extremadura">Extremadura</option>
-          <option value="Galicia">Galicia</option>
-          <option value="Islas Baleares">Islas Baleares</option>
-          <option value="Islas Canarias">Islas Canarias</option>
-          <option value="La Rioja">La Rioja</option>
-          <option value="Madrid">Madrid</option>
-          <option value="Murcia">Murcia</option>
-          <option value="Navarra">Navarra</option>
-          <option value="País Vasco">Pais Vasco</option>
-</datalist>
-</div>
-<div class="campo">
-  <p>Introduce el año</p>
-  <label for="anyo">Año</label>
-  <select id="anyo">
-  <option value="" selected disabled>-- Año --</option>
-  <option value="2025">2025</option>
-  <option value="2024">2024</option>
-  <option value="2023">2023</option>
-  </select>
+      <!-- COMUNIDAD -->
+      <div class="campo">
+        <label for="comunidad">Comunidad Autónoma</label>
+        <select id="comunidad" name="comunidad">
+          <option value="" selected disabled>-- Selecciona comunidad --</option>
+          <option>Andalucía</option>
+          <option>Aragón</option>
+          <option>Asturias</option>
+          <option>Cantabria</option>
+          <option>Castilla la Mancha</option>
+          <option>Castilla y León</option>
+          <option>Cataluña</option>
+          <option>Comunidad Valenciana</option>
+          <option>Extremadura</option>
+          <option>Galicia</option>
+          <option>Islas Baleares</option>
+          <option>Islas Canarias</option>
+          <option>La Rioja</option>
+          <option>Madrid</option>
+          <option>Murcia</option>
+          <option>Navarra</option>
+          <option>País Vasco</option>
+        </select>
+      </div>
 
-</div>
-<button type="button" id="boton">Mostrar examenes</button>
+      <!-- AÑO -->
+      <div class="campo">
+        <label for="anyo">Año</label>
+        <select id="anyo">
+          <option value="" selected disabled>-- Año --</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+        </select>
+      </div>
 
-<div id="resultado"></div>
+      <button type="button" id="boton">Mostrar exámenes</button>
 
+      <div id="resultado"></div>
     </section>
-    <!--
-    
-    <iframe src="https://www.examenesdepau.com/files/examen/LHKH4O/"
-        width="100%" height="600px"></iframe>
-        -->
+
+    <!-- BLOQUE DE CONTENIDO SEO -->
+    <section class="info-extra">
+      <h2>¿Por qué es importante practicar con exámenes oficiales de la EvAU?</h2>
+      <p>
+        Practicar con exámenes reales de años anteriores es una de las mejores formas de preparar la Selectividad.
+        Te permite conocer la estructura de las preguntas, la dificultad habitual y el tipo de ejercicios que
+        suelen aparecer en tu comunidad autónoma.
+      </p>
+
+      <h3>Ventajas de usar exámenes oficiales:</h3>
+      <ul>
+        <li>Mayor familiarización con el formato del examen.</li>
+        <li>Reducción del estrés y la incertidumbre el día de la prueba.</li>
+        <li>Mejora en la gestión del tiempo durante el examen.</li>
+        <li>Aprendizaje de patrones y tipos de preguntas frecuentes.</li>
+      </ul>
+
+      <p>
+        Esta herramienta te facilita acceder rápidamente a todos los exámenes oficiales de la EvAU filtrados por
+        asignatura, comunidad y año, para que puedas prepararte de manera mucho más eficiente.
+      </p>
+    </section>
 
   </main>
+
   <script src="js/pdf.js"></script>
-<script src="js/examenes.js"></script>
+  <script src="js/examenes.js"></script>
 
 </body>
 </html>
