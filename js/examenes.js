@@ -54,8 +54,9 @@ boton.addEventListener("click", ()=>{
     resultado.innerHTML = `
         <h3>Exámenes disponibles</h3>
 
+        <p>Examen de ${asignatura} ${comunidad} ${anyo}</p>
         <button id="btnOrd"
-            style="padding:10px;margin:10px 0;width:100%;font-size:16px;">
+            style="padding:10px;margin:10px 0;width:100%;font-size:16px;text-align:center">
             Ver convocatoria ORDINARIA
         </button>
 

@@ -6,9 +6,35 @@
   
   <!-- SEO -->
   <title>Calculadora EvAU / EBAU 2026 · Calcular Nota de Acceso y Admisión</title>
-  <meta name="description" content="Calcula tu nota EvAU / EBAU 2026 de acceso y admisión a la universidad. Introduce tus calificaciones y obtén tu nota final sobre 10 y sobre 14 de forma sencilla y rápida.">
+
+  <meta name="description" 
+        content="Calcula tu nota EvAU / EBAU 2026 de acceso y admisión a la universidad. Introduce tus calificaciones y obtén tu nota final sobre 10 y 14 de forma rápida y fiable.">
+
+  <!-- Palabras clave (Google ya no las usa, pero otros buscadores sí) -->
   <meta name="keywords" content="EvAU 2026, EBAU 2026, calculadora evau, nota evau, calcular nota ebau, ponderaciones universidad, nota de acceso, nota de admisión, selectividad 2026">
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://tusitio.com/calculadora.html">
+
+  <!-- Open Graph (SEO redes sociales) -->
+  <meta property="og:title" content="Calculadora EvAU 2026 · Calcula tu nota final">
+  <meta property="og:description" content="Calcula tu nota de acceso y admisión EvAU/EBAU 2026 de forma rápida y precisa.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tusitio.com/calculadora.html">
+  <meta property="og:image" content="https://tusitio.com/img/preview-calculadora.jpg">
+
+  <!-- Schema Markup (Mejora SEO en Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora EvAU 2026",
+    "description": "Calculadora EvAU / EBAU 2026 para obtener tu nota de acceso y admisión.",
+    "url": "https://tusitio.com/calculadora.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All"
+  }
+  </script>
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,21 +75,25 @@
       <div class="campo">
         <label for="lengua">Lengua Castellana y Literatura:</label>
         <input type="text" class="datos" id="lengua" placeholder="Ej: 9.5"  oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="historia">Historia de España:</label>
         <input type="text" class="datos" id="historia" placeholder="Ej: 8.8"  oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="ingles">Lengua Extranjera (Inglés, Francés...):</label>
         <input type="text" class="datos" id="ingles" placeholder="Ej: 7.9" step="0.1" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
         <label for="optativa">Troncal de modalidad:</label>
         <input type="text" class="datos" id="optativa" placeholder="Ej: 6.6" step="0.1" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
     </section>
 
@@ -83,6 +113,7 @@
 
         <label for="notaPonderacion1">Nota:</label>
         <input type="text" class="datos" id="notaPonderacion1" placeholder="8.5" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
 
       <div class="campo">
@@ -95,6 +126,7 @@
 
         <label for="notaPonderacion2">Nota:</label>
         <input type="text" class="datos" id="notaPonderacion2" placeholder="9.0" step="0.1" oninput="validarNumero(this)">
+        <span id="mensaje-error"></span>
       </div>
     </section>
 
@@ -114,7 +146,7 @@
 
       <p>La Selectividad (EvAU o EBAU) es la prueba que permite acceder a la universidad. Para la admisión se tienen en cuenta dos valores diferentes: la <strong>nota de acceso</strong> y la <strong>nota de admisión</strong>. A continuación te explicamos cómo se calculan y qué puedes hacer para mejorar tu resultado.</p><br>
 
-      <h3>🔹 Nota de acceso (sobre 10)</h3>
+      <h3>Nota de acceso (sobre 10)</h3>
       <p>La nota de acceso combina tu rendimiento en Bachillerato y la Fase Obligatoria:</p>
 
       <p><strong>0.6 × Nota de Bachillerato + 0.4 × Nota Fase Obligatoria</strong></p>
@@ -123,33 +155,71 @@
         Ejemplo: (0.6 × 8.5) + (0.4 × 7.5) = <strong>8.1 / 10</strong>
       </div><br><br><br>
 
-      <h3>🔹 Nota de admisión (sobre 14)</h3>
-      <p>Esta es la nota que realmente determina si entras en la carrera que quieres. Se calcula sumando las mejores dos ponderaciones de las materias voluntarias.</p>
+      <h3>Nota de admisión (sobre 14)</h3>
+      <p>Esta es la nota que determina si entras en la carrera que quieres. Se calcula sumando las dos mejores ponderaciones de las materias voluntarias.</p>
 
-      <p><strong>Nota de acceso + (materia voluntaria 1 × ponderación) + (materia voluntaria 2 × ponderación)</strong></p>
+      <p><strong>Nota de acceso + (materia voluntaria × ponderación) + (materia voluntaria × ponderación)</strong></p>
 
       <div class="ejemplo">
         Ejemplo: 8.1 + (9×0.2) + (8×0.1) = <strong>10.9 / 14</strong>
       </div><br><br><br>
 
-      <h3>🔍 Consejos para subir tu nota EvAU</h3><br>
+      <h3>Consejos para subir tu nota EvAU</h3><br>
       <ul>
-        <li>Elige bien tus materias voluntarias según la carrera a la que quieras acceder.</li>
+        <li>Elige bien tus materias voluntarias según la carrera que quieras estudiar.</li>
         <li>Comprueba tus ponderaciones en la página de <a href="ponderaciones.html">ponderaciones por universidad</a>.</li>
         <li>Practica con <a href="examenes.html">exámenes reales de años anteriores</a>.</li>
-        <li>Repite el cálculo con diferentes combinaciones para ver qué opción te da más nota.</li>
+        <li>Prueba diferentes combinaciones para maximizar tu nota final.</li>
       </ul><br><br>
 
-      <h3>🎯 ¿Para qué sirve esta calculadora EvAU 2026?</h3>
-      <p>Esta herramienta te permite calcular en segundos tu nota EvAU / EBAU de acceso y admisión. Es ideal para saber tus probabilidades de entrar en grados como Medicina, Ingeniería, ADE, Psicología, Enfermería y todos los estudios universitarios que exigen nota de corte.</p>
+      <h3>¿Para qué sirve esta calculadora EvAU 2026?</h3>
+      <p>Esta herramienta te permite calcular en segundos tu nota EvAU / EBAU de acceso y admisión. Muy útil para saber tus opciones de entrar en carreras como Medicina, Enfermería, Ingeniería, ADE, Psicología y cualquier grado con nota de corte alta.</p>
       <br>
-      <p>Actualizada para la EvAU / EBAU 2026 con las ponderaciones y criterios oficiales.</p>
+      <p>Actualizada para la EvAU / EBAU 2026 con criterios oficiales.</p>
     </section>
+
+<!-- Botón de compartir -->
+<section class="compartir" style="text-align:center; margin: 2rem 0; padding: 1rem; background-color:#f0f4f8; border-radius:8px;">
+  <h2>¡Comparte esta calculadora con tus amigos!</h2>
+  <p>
+    Si esta herramienta te ha sido útil para calcular tu nota EvAU / EBAU 2026, ayúdanos a que otros estudiantes también puedan prepararse de manera rápida y sencilla.  
+    Solo toca el botón de abajo y comparte la página.
+  </p>
+  <button id="botonCompartir" style="padding: 0.75rem 1.5rem; font-size: 1rem; background-color:#007bff; color:white; border:none; border-radius:6px; cursor:pointer;">
+    📤 Compartir esta calculadora
+  </button>
+</section>
+<script>
+  const botonCompartir = document.getElementById("botonCompartir");
+
+  botonCompartir.addEventListener("click", async () => {
+    const url = "https://tusitio.com/calculadora.html"; // Cambia a tu URL real
+    const texto = "Calcula tu nota EvAU / EBAU 2026 con esta calculadora";
+
+    // Si el navegador soporta la API de compartir
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Calculadora EvAU 2026",
+          text: texto,
+          url: url
+        });
+        console.log("Compartido con éxito");
+      } catch (err) {
+        console.error("Error al compartir:", err);
+      }
+    } else {
+      // Fallback para navegadores que no soportan navigator.share
+      prompt("Copia este enlace para compartir:", url);
+    }
+  });
+</script>
+
 
   </main>
 
   <footer>
-    <p>© 2026 Calculadora EvAU | Herramienta educativa no oficial. Actualizado para la EvAU / EBAU 2026.</p>
+    <p>&copy; 2026 Calculadora EvAU - Todos los derechos reservados</p>
   </footer>
 
   <script src="js/calculadora.js"></script>

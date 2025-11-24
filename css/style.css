@@ -166,6 +166,7 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  align-items: center;
 }
 
 .universidad {

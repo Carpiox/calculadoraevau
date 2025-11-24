@@ -16,9 +16,9 @@
             {nombre: "Universidad de Huelva (UHU)", pdf:"https://calculadoraevau.netlify.app/Ponderaciones/Andalucia/Andalucia.pdf"},
         ],
         
-        Aragon:[
+        Aragón:[
             {nombre: "Universidad de Zaragoza (UNIZAR)", pdf:"https://calculadoraevau.netlify.app/Ponderaciones/Aragon/Aragon.pdf"},
-            {aragon: "Universidad Internacional. Menéndez Pelayo (UIMP)", pdf:"https://calculadoraevau.netlify.app/Ponderaciones/Aragon/Aragon.pdf"}
+            {nombre: "Universidad Internacional. Menéndez Pelayo (UIMP)", pdf:"https://calculadoraevau.netlify.app/Ponderaciones/Aragon/Aragon.pdf"}
         ],
         
         Asturias:[
