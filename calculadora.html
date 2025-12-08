@@ -179,7 +179,7 @@
     </section>
 
 <!-- Botón de compartir -->
-<section class="compartir" style="text-align:center; margin: 2rem 0; padding: 1rem; background-color:#f0f4f8; border-radius:8px;">
+<section class="compartir">
   <h2>¡Comparte esta calculadora con tus amigos!</h2>
   <p>
     Si esta herramienta te ha sido útil para calcular tu nota EvAU / EBAU 2026, ayúdanos a que otros estudiantes también puedan prepararse de manera rápida y sencilla.  
@@ -189,31 +189,6 @@
     📤 Compartir esta calculadora
   </button>
 </section>
-<script>
-  const botonCompartir = document.getElementById("botonCompartir");
-
-  botonCompartir.addEventListener("click", async () => {
-    const url = "https://tusitio.com/calculadora.html"; // Cambia a tu URL real
-    const texto = "Calcula tu nota EvAU / EBAU 2026 con esta calculadora";
-
-    // Si el navegador soporta la API de compartir
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "Calculadora EvAU 2026",
-          text: texto,
-          url: url
-        });
-        console.log("Compartido con éxito");
-      } catch (err) {
-        console.error("Error al compartir:", err);
-      }
-    } else {
-      // Fallback para navegadores que no soportan navigator.share
-      prompt("Copia este enlace para compartir:", url);
-    }
-  });
-</script>
 
 
   </main>

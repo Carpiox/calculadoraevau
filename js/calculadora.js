@@ -1,6 +1,28 @@
 let calcular = document.getElementById("calcular");
+const botonCompartir = document.getElementById("botonCompartir");
 
-function validarNumero(input){
+botonCompartir.addEventListener("click", async () => {
+  const url = "https://tusitio.com/calculadora.html"; // Cambia a tu URL real
+  const texto = "Calcula tu nota EvAU / EBAU 2026 con esta calculadora";
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Calculadora EvAU 2026",
+        text: texto,
+        url: url
+      });
+      console.log("Compartido con éxito");
+    } catch (err) {
+      console.error("Error al compartir:", err);
+    }
+  } else {
+    // Fallback para navegadores que no soportan navigator.share
+    prompt("Copia este enlace para compartir:", url);
+  }
+});
+
+function validarNumero(input) {
   // El span está justo después del input
   let mensaje = input.nextElementSibling;
 
@@ -15,16 +37,16 @@ function validarNumero(input){
   let num = parseFloat(valor);
 
   // Rango permitido
-  if (num < 5 || num > 10){
+  if (num < 5 || num > 10) {
     mensaje.textContent = "El valor debe estar entre 5 y 10.";
     mensaje.style.display = "inline";
     return;
   }
 
   // Máximo 2 decimales
-  if (valor.includes(".")){
+  if (valor.includes(".")) {
     let partes = valor.split(".");
-    if (partes[1].length > 2){
+    if (partes[1].length > 2) {
       mensaje.textContent = "Máximo 2 decimales.";
       mensaje.style.display = "inline";
     }
@@ -35,9 +57,9 @@ function validarNumero(input){
 
 calcular.addEventListener("click", () => {
 
-  function convertirNumero(valor){
+  function convertirNumero(valor) {
     if (!valor) return NaN;
-    return parseFloat(valor.replace(",","."));
+    return parseFloat(valor.replace(",", "."));
   }
 
   // Nota media Bachillerato
@@ -75,11 +97,37 @@ calcular.addEventListener("click", () => {
   // Limpia el texto anterior antes de mostrar el nuevo resultado
   notaCalculada.innerHTML = "";
 
-  // Si las ponderaciones no se han rellenado, muestra solo la nota sobre 10
-  if (isNaN(notaSobre14)) {
-    notaCalculada.innerHTML = "Nota calculada: " + notaGeneral.toFixed(2) + " /10";
-  } else {
-    notaCalculada.innerHTML = "Nota calculada: " + notaSobre14.toFixed(2) + " /14";
+  // Crear un span para el mensaje
+  let mensaje = document.createElement("span");
+
+  // Verificar si la nota es NaN
+  if (isNaN(notaGeneral) || isNaN(notaSobre14)) {
+    mensaje.textContent = "⚠️ Comprueba los datos introducidos";
+    mensaje.style.color = "red";
+    mensaje.style.fontWeight = "bold";
+
+    notaCalculada.appendChild(mensaje);
+    notaCalculada.innerHTML += "<br>";
+    return;
   }
+
+  // Si las ponderaciones no se han rellenado, muestra solo la nota sobre 10
+  let textoResultado = "";
+
+  if (isNaN(ponderacion1) || isNaN(notaPonderacion1) || isNaN(ponderacion2) || isNaN(notaPonderacion2)) {
+    textoResultado = "Nota calculada: " + notaGeneral.toFixed(2) + " /10";
+  } else {
+    textoResultado = "Nota calculada: " + notaSobre14.toFixed(2) + " /14";
+  }
+
+  // Aplicar estilo verde llamativo
+  mensaje.textContent = textoResultado;
+  mensaje.style.color = "#06c258"; // Verde llamativo
+  mensaje.style.fontWeight = "bold";
+
+  notaCalculada.innerHTML += "<br>";
+  notaCalculada.appendChild(mensaje);
+
+
 
 });

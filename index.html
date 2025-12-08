@@ -106,16 +106,16 @@
     </section>
 
     <!-- BLOQUE SEO POR COMUNIDADES -->
-    <div class="seo-block">
+    <section>
       <h3>Ponderaciones y exámenes EvAU 2026 por comunidades</h3>
       <p>
         Consulta las ponderaciones y exámenes oficiales de todas las comunidades españolas: Andalucía, Madrid, Cataluña, Aragón, Galicia, Murcia, Castilla y León, Castilla-La Mancha, Valencia, Asturias, Navarra, País Vasco, Islas Canarias, Baleares, La Rioja y Cantabria.
-      </p>
-    </div>
+      </p><br>
+    </section>
 
     
 <!-- Botón de compartir -->
-<section class="compartir" style="text-align:center; margin: 2rem 0; padding: 1rem; background-color:#f0f4f8; border-radius:8px;">
+<section class="compartir">
   <h2>¡Comparte esta calculadora con tus amigos!</h2>
   <p>
     Si esta herramienta te ha sido útil para calcular tu nota EvAU / EBAU 2026, ayúdanos a que otros estudiantes también puedan prepararse de manera rápida y sencilla.  
@@ -130,13 +130,13 @@
 
   botonCompartir.addEventListener("click", async () => {
     const url = "https://tusitio.com/calculadora.html"; // Cambia a tu URL real
-    const texto = "Calcula tu nota EvAU / EBAU 2026 con esta calculadora";
+    const texto = "Calculadora EBAU 2026";
 
     // Si el navegador soporta la API de compartir
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Calculadora EvAU 2026",
+          title: "Calculadora EBAU 2026",
           text: texto,
           url: url
         });
