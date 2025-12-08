@@ -248,3 +248,18 @@ footer {
     padding: 0.9rem;
   }
 }
+
+
+#ponderaciones h2 {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    #ponderaciones h2 {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+}
