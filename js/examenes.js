@@ -3,7 +3,7 @@ let resultado = document.getElementById("resultado");
 let progresoInterval = null;
 
 // Función que hace la barra de carga
-function cargarPDF(url) {
+function cargarPDF(url, asignatura, comunidad, anyo) {
 
     // limpiar si había una barra previa
     if (progresoInterval) clearInterval(progresoInterval);
@@ -12,7 +12,7 @@ function cargarPDF(url) {
         <div style="width:100%;background:#ddd;border-radius:8px;overflow:hidden;height:22px;margin:12px 0;">
             <div id="barra" style="width:0%;height:100%;background:#4A90E2;"></div>
         </div>
-        <p>Cargando PDF, espera un momento...</p>
+        <p>Cargando PDF examen ${asignatura} ${anyo}, ${comunidad}, espera un momento...</p>
     `;
 
     let barra = resultado.querySelector("#barra");
@@ -34,10 +34,12 @@ function cargarPDF(url) {
 
 // Cuando le das al botón
 boton.addEventListener("click", ()=>{
-
+    
     let asignatura = document.getElementById("asignatura").value.trim();
     let comunidad  = document.getElementById("comunidad").value.trim();
     let anyo       = document.getElementById("anyo").value;
+
+
 
     let datos = examenes?.[anyo]?.[asignatura]?.[comunidad];
 
@@ -67,6 +69,6 @@ boton.addEventListener("click", ()=>{
     `;
 
     // Eventos de los botones
-    document.getElementById("btnOrd").onclick = () => cargarPDF(datos.ordinaria);
-    document.getElementById("btnExt").onclick = () => cargarPDF(datos.extraordinaria);
+    document.getElementById("btnOrd").onclick = () => cargarPDF(datos.ordinaria , asignatura, comunidad, anyo);
+    document.getElementById("btnExt").onclick = () => cargarPDF(datos.extraordinaria, asignatura, comunidad, anyo);
 });

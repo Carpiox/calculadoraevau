@@ -248,7 +248,7 @@
             },
         ],
 
-        Murcia: [{
+        Murcia: [{  
                 nombre: "Universidad de Murcia (UM)",
                 pdf: "https://calculadoraevau.netlify.app/Ponderaciones/Murcia/UM_-_Universidad_de_Murcia.pdf"
             },
@@ -350,5 +350,3 @@
             ponderaciones.appendChild(div);
         });
     });
-
-    //Enlace a mostrar: https://calculadoraevau.netlify.app/ponderaciones/Andaluc%C3%ADa/UAH_-_Universidad_de_Alcal%C3%A1.pdf
