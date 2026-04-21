@@ -1,202 +1,223 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO -->
-  <title>Calculadora EvAU / EBAU 2026 · Calcular Nota de Acceso y Admisión</title>
-
-  <meta name="description" 
-        content="Calcula tu nota EvAU / EBAU 2026 de acceso y admisión a la universidad. Introduce tus calificaciones y obtén tu nota final sobre 10 y 14 de forma rápida y fiable.">
-
-  <!-- Palabras clave (Google ya no las usa, pero otros buscadores sí) -->
-  <meta name="keywords" content="EvAU 2026, EBAU 2026, calculadora evau, nota evau, calcular nota ebau, ponderaciones universidad, nota de acceso, nota de admisión, selectividad 2026">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://tusitio.com/calculadora.html">
-
-  <!-- Open Graph (SEO redes sociales) -->
-  <meta property="og:title" content="Calculadora EvAU 2026 · Calcula tu nota final">
-  <meta property="og:description" content="Calcula tu nota de acceso y admisión EvAU/EBAU 2026 de forma rápida y precisa.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tusitio.com/calculadora.html">
-  <meta property="og:image" content="https://tusitio.com/img/preview-calculadora.jpg">
-
-  <!-- Schema Markup (Mejora SEO en Google) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Calculadora EvAU 2026",
-    "description": "Calculadora EvAU / EBAU 2026 para obtener tu nota de acceso y admisión.",
-    "url": "https://tusitio.com/calculadora.html",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "All"
-  }
-  </script>
-
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora EvAU 2026 · Calcula tu nota final</title>
+  <meta name="description" content="Calcula tu nota de acceso y admisión EvAU / EBAU 2026 en segundos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
-  <!-- CABECERA -->
-  <header>
-    <h1>Calculadora <a href="index.html">EBAU</a> 2026</h1>
-    <p>Calcula tu nota de acceso y admisión a la universidad fácilmente</p>
 
-    <nav aria-label="Menú principal">
-      <a href="calculadora.html" class="activo">Calculadora</a>
-      <a href="ponderaciones.html">Ponderaciones</a>
-      <a href="examenes.html">Exámenes</a>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="/">EvAU 2026</a>
+      <ul class="navbar-links">
+        <li><a href="/calculadora" class="active">Calculadora</a></li>
+        <li><a href="/ponderaciones">Ponderaciones</a></li>
+        <li><a href="/examenes">Exámenes</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <main>
+  <div class="page">
 
-    <!-- Nota Media Bachillerato -->
-    <section>
-      <h2>Nota Media de Bachillerato</h2>
-      <div class="campo">
-        <label for="mediaBach">Introduce tu nota media de Bachillerato:</label>
-        <input type="text" class="datos" id="mediaBach" placeholder="Ej: 8.4" oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+    <!-- Bachillerato -->
+    <div class="card">
+      <div class="card-title">
+        Nota media de Bachillerato
       </div>
-    </section>
+      <div class="form-group">
+        <label class="form-label" for="notaBachillerato">Nota media (0 – 10)</label>
+        <input
+          class="form-input"
+          type="number"
+          id="notaBachillerato"
+          min="0" max="10" step="0.01"
+          placeholder="Ej. 8.50"
+        />
+        <p class="form-hint">Introduce tu nota media de los dos años de Bachillerato.</p>
+      </div>
+    </div>
 
     <!-- Fase Obligatoria -->
-    <section>
-      <h2>Fase Obligatoria de la EvAU / EBAU</h2>
-      <p>Introduce las notas de las asignaturas comunes de la Fase Obligatoria:</p>
-
-      <div class="campo">
-        <label for="lengua">Lengua Castellana y Literatura:</label>
-        <input type="text" class="datos" id="lengua" placeholder="Ej: 9.5"  oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+    <div class="card">
+      <div class="card-title">
+        Fase Obligatoria
+        <span class="pill">Asignaturas comunes</span>
       </div>
 
-      <div class="campo">
-        <label for="historia">Historia de España:</label>
-        <input type="text" class="datos" id="historia" placeholder="Ej: 8.8"  oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="lengua">Lengua Castellana y Literatura</label>
+          <input class="form-input" type="number" id="lengua" min="0" max="10" step="0.01" placeholder="0 – 10" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="historia">Historia de España</label>
+          <input class="form-input" type="number" id="historia" min="0" max="10" step="0.01" placeholder="0 – 10" />
+        </div>
       </div>
 
-      <div class="campo">
-        <label for="ingles">Lengua Extranjera (Inglés, Francés...):</label>
-        <input type="text" class="datos" id="ingles" placeholder="Ej: 7.9" step="0.1" oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="idioma">Lengua Extranjera</label>
+          <input class="form-input" type="number" id="idioma" min="0" max="10" step="0.01" placeholder="Inglés, Francés…" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="troncal">Troncal de modalidad</label>
+          <input class="form-input" type="number" id="troncal" min="0" max="10" step="0.01" placeholder="0 – 10" />
+        </div>
       </div>
-
-      <div class="campo">
-        <label for="optativa">Troncal de modalidad:</label>
-        <input type="text" class="datos" id="optativa" placeholder="Ej: 6.6" step="0.1" oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
-      </div>
-    </section>
+    </div>
 
     <!-- Fase Voluntaria -->
-    <section>
-      <h2>Fase Voluntaria y Ponderaciones</h2>
-      <p>Introduce tus dos materias voluntarias junto a su ponderación.</p>
-      <a href="ponderaciones.html" title="Ver cuánto pondera cada asignatura">Consultar ponderaciones oficiales</a>
-
-      <div class="campo">
-        <h3>Materia 1</h3>
-        <label for="ponderacion1">Ponderación:</label>
-        <select id="ponderacion1">
-          <option value="0.1">0.1</option>
-          <option value="0.2">0.2</option>
-        </select>
-
-        <label for="notaPonderacion1">Nota:</label>
-        <input type="text" class="datos" id="notaPonderacion1" placeholder="8.5" oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+    <div class="card">
+      <div class="card-title">
+        Fase Voluntaria y Ponderaciones
+        <span class="pill"><a href="/ponderaciones" style="color:inherit;">Ver ponderaciones →</a></span>
       </div>
 
-      <div class="campo">
-        <h3>Materia 2</h3>
-        <label for="ponderacion2">Ponderación:</label>
-        <select id="ponderacion2">
-          <option value="0.1">0.1</option>
-          <option value="0.2">0.2</option>
-        </select>
-
-        <label for="notaPonderacion2">Nota:</label>
-        <input type="text" class="datos" id="notaPonderacion2" placeholder="9.0" step="0.1" oninput="validarNumero(this)">
-        <span id="mensaje-error"></span>
+      <div class="sub-card">
+        <div class="sub-card-label">Materia 1</div>
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="pond1">Ponderación</label>
+            <select class="form-select" id="pond1">
+              <option value="0">Sin ponderar</option>
+              <option value="0.1">0.1</option>
+              <option value="0.2" selected>0.2</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="nota1">Nota</label>
+            <input class="form-input" type="number" id="nota1" min="0" max="10" step="0.01" placeholder="0 – 10" />
+          </div>
+        </div>
       </div>
-    </section>
+
+      <div class="sub-card">
+        <div class="sub-card-label">Materia 2</div>
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="pond2">Ponderación</label>
+            <select class="form-select" id="pond2">
+              <option value="0">Sin ponderar</option>
+              <option value="0.1" selected>0.1</option>
+              <option value="0.2">0.2</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label" for="nota2">Nota</label>
+            <input class="form-input" type="number" id="nota2" min="0" max="10" step="0.01" placeholder="0 – 10" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón calcular -->
+    <button class="btn btn-success btn-lg btn-block" onclick="calcular()">
+      Calcular mi nota EvAU
+    </button>
 
     <!-- Resultado -->
-    <section>
-      <h2>Resultado Final</h2>
-      <button id="calcular">Calcular Nota Final</button>
-
-      <div class="salida">
-        <p><strong>Nota de EvAU:</strong> <span id="notaCalculada">-</span></p>
+    <div class="result-box" id="resultado" style="display:none;">
+      <div class="result-grid">
+        <div class="result-mini">
+          <div class="result-label">Nota de acceso</div>
+          <div class="result-value" id="notaAcceso">—</div>
+          <div class="result-sub">sobre 10</div>
+        </div>
+        <div class="result-mini">
+          <div class="result-label">Nota de admisión</div>
+          <div class="result-value" id="notaAdmision">—</div>
+          <div class="result-sub">sobre 14</div>
+        </div>
       </div>
-    </section>
+      <div style="font-size: 0.82rem; opacity: 0.65; margin-top: 0.5rem;">
+        Resultado calculado con los criterios oficiales EvAU 2026
+      </div>
+    </div>
 
-    <!-- EXPLICACION SEO EXTENDIDA -->
-    <section>
-      <h2>¿Cómo se calcula la nota EvAU / EBAU 2026?</h2>
+    <!-- Info -->
+    <div class="info-section">
 
-      <p>La Selectividad (EvAU o EBAU) es la prueba que permite acceder a la universidad. Para la admisión se tienen en cuenta dos valores diferentes: la <strong>nota de acceso</strong> y la <strong>nota de admisión</strong>. A continuación te explicamos cómo se calculan y qué puedes hacer para mejorar tu resultado.</p><br>
+      <div class="card" style="margin-top:2rem;">
+        <div class="card-title">¿Cómo se calcula la nota EvAU 2026?</div>
 
-      <h3>Nota de acceso (sobre 10)</h3>
-      <p>La nota de acceso combina tu rendimiento en Bachillerato y la Fase Obligatoria:</p>
+        <h3 style="margin-bottom:0.3rem; color: var(--text);">Nota de acceso (sobre 10)</h3>
+        <p style="font-size:0.92rem;">Combina tu rendimiento en Bachillerato y la Fase Obligatoria:</p>
+        <div class="formula-box">0.6 × Nota Bachillerato + 0.4 × Nota Fase Obligatoria</div>
+        <p style="font-size:0.88rem; margin-bottom:1.25rem;">Ejemplo: (0.6 × 8.5) + (0.4 × 7.5) = <strong>8.1 / 10</strong></p>
 
-      <p><strong>0.6 × Nota de Bachillerato + 0.4 × Nota Fase Obligatoria</strong></p>
+        <h3 style="margin-bottom:0.3rem; color: var(--text);">Nota de admisión (sobre 14)</h3>
+        <p style="font-size:0.92rem;">Determina si entras en la carrera que quieres. Se suman las mejores ponderaciones de las materias voluntarias.</p>
+        <div class="formula-box">Nota de acceso + (Materia 1 × ponderación) + (Materia 2 × ponderación)</div>
+        <p style="font-size:0.88rem;">Ejemplo: 8.1 + (9 × 0.2) + (8 × 0.1) = <strong>10.9 / 14</strong></p>
+      </div>
 
-      <div class="ejemplo">
-        Ejemplo: (0.6 × 8.5) + (0.4 × 7.5) = <strong>8.1 / 10</strong>
-      </div><br><br><br>
+      <div class="card">
+        <div class="card-title">Consejos para subir tu nota</div>
+        <ul class="tips-list">
+          <li>Elige bien tus materias voluntarias según la carrera que quieras estudiar.</li>
+          <li>Comprueba tus ponderaciones en la <a href="/ponderaciones">tabla por universidad</a>.</li>
+          <li>Practica con <a href="/examenes">exámenes reales de años anteriores</a>.</li>
+          <li>Prueba diferentes combinaciones de materias para maximizar tu nota final.</li>
+        </ul>
+      </div>
 
-      <h3>Nota de admisión (sobre 14)</h3>
-      <p>Esta es la nota que determina si entras en la carrera que quieres. Se calcula sumando las dos mejores ponderaciones de las materias voluntarias.</p>
+    </div>
 
-      <p><strong>Nota de acceso + (materia voluntaria × ponderación) + (materia voluntaria × ponderación)</strong></p>
+    <!-- Share -->
+    <div class="share-section">
+      <h2>¿Te ha sido útil?</h2>
+      <p>Comparte con tus compañeros para que también puedan calcular su nota EvAU 2026.</p>
+      <button class="btn btn-primary" onclick="navigator.share ? navigator.share({title:'Calculadora EvAU 2026', url: location.href}) : navigator.clipboard.writeText(location.href)">
+        Compartir calculadora
+      </button>
+    </div>
 
-      <div class="ejemplo">
-        Ejemplo: 8.1 + (9×0.2) + (8×0.1) = <strong>10.9 / 14</strong>
-      </div><br><br><br>
-
-      <h3>Consejos para subir tu nota EvAU</h3><br>
-      <ul>
-        <li>Elige bien tus materias voluntarias según la carrera que quieras estudiar.</li>
-        <li>Comprueba tus ponderaciones en la página de <a href="ponderaciones.html">ponderaciones por universidad</a>.</li>
-        <li>Practica con <a href="examenes.html">exámenes reales de años anteriores</a>.</li>
-        <li>Prueba diferentes combinaciones para maximizar tu nota final.</li>
-      </ul><br><br>
-
-      <h3>¿Para qué sirve esta calculadora EvAU 2026?</h3>
-      <p>Esta herramienta te permite calcular en segundos tu nota EvAU / EBAU de acceso y admisión. Muy útil para saber tus opciones de entrar en carreras como Medicina, Enfermería, Ingeniería, ADE, Psicología y cualquier grado con nota de corte alta.</p>
-      <br>
-      <p>Actualizada para la EvAU / EBAU 2026 con criterios oficiales.</p>
-    </section>
-
-<!-- Botón de compartir -->
-<section class="compartir">
-  <h2>¡Comparte esta calculadora con tus amigos!</h2>
-  <p>
-    Si esta herramienta te ha sido útil para calcular tu nota EvAU / EBAU 2026, ayúdanos a que otros estudiantes también puedan prepararse de manera rápida y sencilla.  
-    Solo toca el botón de abajo y comparte la página.
-  </p>
-  <button id="botonCompartir" style="padding: 0.75rem 1.5rem; font-size: 1rem; background-color:#007bff; color:white; border:none; border-radius:6px; cursor:pointer;">
-    📤 Compartir esta calculadora
-  </button>
-</section>
-
-
-  </main>
+  </div>
 
   <footer>
-    <p>&copy; 2026 Calculadora EvAU - Todos los derechos reservados</p>
+    © 2026 Calculadora EvAU — Todos los derechos reservados
   </footer>
 
-  <script src="js/calculadora.js"></script>
+  <script>
+    function getVal(id) {
+      return parseFloat(document.getElementById(id).value) || 0;
+    }
+
+    function calcular() {
+      const bach = getVal('notaBachillerato');
+      const lengua = getVal('lengua');
+      const historia = getVal('historia');
+      const idioma = getVal('idioma');
+      const troncal = getVal('troncal');
+
+      const pond1 = parseFloat(document.getElementById('pond1').value) || 0;
+      const nota1 = getVal('nota1');
+      const pond2 = parseFloat(document.getElementById('pond2').value) || 0;
+      const nota2 = getVal('nota2');
+
+      const mediaFaseObl = (lengua + historia + idioma + troncal) / 4;
+      const notaAcceso = (0.6 * bach) + (0.4 * mediaFaseObl);
+      const notaAdmision = notaAcceso + (nota1 * pond1) + (nota2 * pond2);
+
+      const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+      const acceso = clamp(notaAcceso, 0, 10);
+      const admision = clamp(notaAdmision, 0, 14);
+
+      document.getElementById('notaAcceso').textContent = acceso.toFixed(3);
+      document.getElementById('notaAdmision').textContent = admision.toFixed(3);
+
+      const box = document.getElementById('resultado');
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
 </body>
 </html>
