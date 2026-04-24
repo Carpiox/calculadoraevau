@@ -1,211 +1,456 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exámenes EvAU / EBAU 2026 – Oficiales PDF por Asignatura y Comunidad</title>
+  <meta name="description" content="Descarga exámenes oficiales de la EvAU / EBAU clasificados por asignatura, comunidad autónoma y año. Prepara la Selectividad 2026 con pruebas reales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .filters-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 1.25rem;
+    }
 
-  <title>Exámenes EvAU / EBAU 2026 – Descarga Oficial por Asignatura y Comunidad</title>
+    .filters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 120px;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 1rem;
+    }
 
-  <meta name="description"
-        content="Descarga exámenes oficiales EvAU / EBAU 2026, 2025 y años anteriores. Elige asignatura, comunidad autónoma y año para obtener los exámenes en PDF listos para practicar.">
+    @media (max-width: 600px) {
+      .filters-grid { grid-template-columns: 1fr; }
+    }
 
-  <!-- SEO - Open Graph -->
-  <meta property="og:title" content="Exámenes EvAU / EBAU 2026 - Oficiales PDF">
-  <meta property="og:description" content="Descarga exámenes oficiales de todas las comunidades autónomas.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="img/evau.jpg">
+    .form-group-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-  <!-- SEO - Datos estructurados -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Exámenes EvAU 2026",
-    "description":"Descarga exámenes oficiales de Selectividad / EvAU por comunidad y asignatura.",
-    "url":"https://tusitio.com/examenes.html"
-  }
-  </script>
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
 
-  <link rel="stylesheet" href="css/style.css">
+    .results-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    .badge-count {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .exam-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .exam-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0.9rem 1.1rem;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .exam-row:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-card);
+    }
+
+    .exam-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--danger-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .exam-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .exam-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .exam-meta {
+      font-size: 0.8rem;
+      color: var(--text-hint);
+      margin-top: 2px;
+    }
+
+    .exam-tags {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 0.5px solid var(--border-strong);
+      color: var(--text-muted);
+      background: var(--bg);
+      white-space: nowrap;
+    }
+
+    .tag.year {
+      background: var(--amber-light);
+      color: var(--amber);
+      border-color: transparent;
+    }
+
+    .exam-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--primary);
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .exam-link:hover { text-decoration: underline; }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-hint);
+    }
+
+    .empty-state .empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .empty-state p { font-size: 0.92rem; color: var(--text-hint); }
+
+    .result-area { display: none; }
+    .result-area.visible { display: block; }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .tip-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+    }
+
+    .tip-card .tip-icon {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .tip-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .contact-box {
+      background: var(--surface-alt);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    .contact-box a { color: var(--primary); font-weight: 500; }
+  </style>
 </head>
-
 <body>
 
-  <!-- CABECERA -->
-  <header>
-    <h1>Exámenes <a href="index.html">EBAU</a> 2026</h1>
-    <p>Descarga exámenes oficiales de Selectividad</p>
-
-    <nav aria-label="Menú principal">
-      <a href="calculadora.html">Calculadora</a>
-      <a href="ponderaciones.html">Ponderaciones</a>
-      <a href="examenes.html" class="activo">Exámenes</a>
-    </nav>
-  </header>
-
-
-
-  <main>
-    <section class="contenido">
-      <h2>Descarga los exámenes oficiales de la EvAU</h2>
-      <p>Selecciona la asignatura, comunidad autónoma y año para obtener los exámenes correspondientes.</p>
-
-      <!-- ASIGNATURA -->
-      <div class="campo">
-        <label for="asignatura">Asignatura</label>
-        <select id="asignatura" name="asignatura">
-          <option value="" selected disabled>-- Selecciona asignatura --</option>
-          <option>Aleman</option>
-          <option>Analisis Musical</option>
-          <option>Anatomia aplicada</option>
-          <option>Artes escenicas</option>
-          <option>Biologia</option>
-          <option>Ciencias Generales</option>
-          <option>Ciencia de la tierra y medioambientelaes</option>
-          <option>Coro y Tecnical Vocal</option>
-          <option>Cultura Audiovisual</option>
-          <option>Dibujo Artistico II</option>
-          <option>Dibujo Tecnico aplicado a las artes plasticas y al Diseño II</option>
-          <option>Dibujo Tecnico II</option>
-          <option>Diseño</option>
-          <option>Economia de la Empresa</option>
-          <option>Electrotecnia</option>
-          <option>Empresa y Diseño de Modelos de Negocio</option>
-          <option>Francés</option>
-          <option>Fundamentos Artísticos</option>
-          <option>Fundamentos del Arte</option>
-          <option>Física</option>
-          <option>Geografía</option>
-          <option>Geología y Ciencias Ambientales</option>
-          <option>Griego</option>
-          <option>Historia de España</option>
-          <option>Historia de la Filosofía</option>
-          <option>Historia de la Música y de la Danza</option>
-          <option>Historia del Arte</option>
-          <option>Imagen</option>
-          <option>Inglés</option>
-          <option>Italiano</option>
-          <option>Latín II</option>
-          <option>Lengua Castellana y Literatura</option>
-          <option>Lengua Catalana y Literatura</option>
-          <option>Lengua Gallega y Literatura</option>
-          <option>Lengua Vasca y Literatura</option>
-          <option>Lengua y Literatura (Valenciano)</option>
-          <option>Lenguaje y Práctica Musical</option>
-          <option>Literatura Castellana</option>
-          <option>Literatura Catalana</option>
-          <option>Literatura Dramática</option>
-          <option>Literatura Universal</option>
-          <option>Matemáticas Aplicadas a las Ciencias Sociales</option>
-          <option>Matemáticas II</option>
-          <option>Mecánica</option>
-          <option>Movimientos Culturales y Artísticos</option>
-          <option>Portugués</option>
-          <option>Química</option>
-          <option>Tecnología Industrial</option>
-          <option>Tecnología e Ingeniería</option>
-          <option>Técnicas de Expresión Gráfico Plástica</option>
-        </select>
-      </div>
-
-      <!-- COMUNIDAD -->
-      <div class="campo">
-        <label for="comunidad">Comunidad Autónoma</label>
-        <select id="comunidad" name="comunidad">
-          <option value="" selected disabled>-- Selecciona comunidad --</option>
-          <option>Andalucía</option>
-          <option>Aragón</option>
-          <option>Asturias</option>
-          <option>Cantabria</option>
-          <option>Castilla la Mancha</option>
-          <option>Castilla y León</option>
-          <option>Cataluña</option>
-          <option>Comunidad Valenciana</option>
-          <option>Extremadura</option>
-          <option>Galicia</option>
-          <option>Islas Baleares</option>
-          <option>Islas Canarias</option>
-          <option>La Rioja</option>
-          <option>Madrid</option>
-          <option>Murcia</option>
-          <option>Navarra</option>
-          <option>País Vasco</option>
-        </select>
-      </div>
-
-      <!-- AÑO -->
-      <div class="campo">
-        <label for="anyo">Año</label>
-        <select id="anyo">
-          <option value="" selected disabled>-- Año --</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-        </select>
-      </div>
-
-      <button type="button" id="boton">Mostrar exámenes</button>
-
-      <div id="resultado"></div>
-    </section>
-
-    <!-- BLOQUE DE CONTENIDO SEO -->
-    <section class="info-extra">
-      <h2>¿Por qué es importante practicar con exámenes oficiales de la EvAU?</h2>
-      <p>
-        Practicar con exámenes reales de años anteriores es una de las mejores formas de preparar la Selectividad.
-        Te permite conocer la estructura de las preguntas, la dificultad habitual y el tipo de ejercicios que
-        suelen aparecer en tu comunidad autónoma.
-      </p><br>
-
-      <h3>Ventajas de usar exámenes oficiales:</h3><br>
-      <ul>
-        <li>Mayor familiarización con el formato del examen.</li>
-        <li>Reducción del estrés y la incertidumbre el día de la prueba.</li>
-        <li>Mejora en la gestión del tiempo durante el examen.</li>
-        <li>Aprendizaje de patrones y tipos de preguntas frecuentes.</li>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="/">EvAU 2026</a>
+      <ul class="navbar-links">
+        <li><a href="/calculadora.html">Calculadora</a></li>
+        <li><a href="/ponderaciones.html">Ponderaciones</a></li>
+        <li><a href="/examenes.html" class="active">Exámenes</a></li>
       </ul>
-<br>
-      <p>
-        Esta herramienta te facilita acceder rápidamente a todos los exámenes oficiales de la EvAU filtrados por
-        asignatura, comunidad y año, para que puedas prepararte de manera mucho más eficiente.
-      </p>
-    </section>
+    </div>
+  </nav>
 
-<section class="contenido">
-  <p>¿Tienes algún examen oficial que no aparezca en la web y quieres compartirlo?</p>
-  <p>¿Has encontrado algún error o quieres sugerir una mejora?</p>
-  <p>Puedes escribirnos a: calculadoraebau@gmail.com</p>
-</section>
+  <div class="page">
 
-<!-- Botón de compartir -->
-<section class="compartir">
-  <h2>¿Tus exámenes ya están listos? ¡Comparte esta herramienta!</h2>
-  <p>
-    Si esta calculadora te ha servido para revisar tus notas de la fase obligatoria,  
-    quizás también pueda ayudar a otros compañeros que están preparando la EvAU.  
-    Comparte la página y haz que estudiar sea un poco más fácil para todos.
-  </p>
-  <button id="botonCompartir">
-    📤 Compartir esta calculadora
-  </button>
-</section>
+    <!-- Header -->
+    <div style="margin-bottom: 1.75rem;">
+      <span class="hero-badge">PDFs oficiales · 2023 – 2025</span>
+      <h1 style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Exámenes EvAU oficiales</h1>
+      <p style="font-size: 1rem;">Descarga pruebas reales de años anteriores filtradas por asignatura, comunidad y año.</p>
+    </div>
 
+    <!-- Filtros -->
+    <div class="filters-card">
+      <div class="filters-grid">
+        <div class="form-group-inline">
+          <label class="form-label" for="selAsignatura">Asignatura</label>
+          <select class="form-select" id="selAsignatura">
+            <option value="">-- Selecciona asignatura --</option>
+            <option>Alemán</option>
+            <option>Análisis Musical</option>
+            <option>Anatomía Aplicada</option>
+            <option>Artes Escénicas</option>
+            <option>Biología</option>
+            <option>Ciencias Generales</option>
+            <option>Ciencia de la Tierra y Medioambiente</option>
+            <option>Coro y Técnica Vocal</option>
+            <option>Cultura Audiovisual</option>
+            <option>Dibujo Artístico II</option>
+            <option>Dibujo Técnico aplicado a las Artes Plásticas y al Diseño II</option>
+            <option>Dibujo Técnico II</option>
+            <option>Diseño</option>
+            <option>Economía de la Empresa</option>
+            <option>Electrotecnia</option>
+            <option>Empresa y Diseño de Modelos de Negocio</option>
+            <option>Francés</option>
+            <option>Fundamentos Artísticos</option>
+            <option>Fundamentos del Arte</option>
+            <option>Física</option>
+            <option>Geografía</option>
+            <option>Geología y Ciencias Ambientales</option>
+            <option>Griego</option>
+            <option>Historia de España</option>
+            <option>Historia de la Filosofía</option>
+            <option>Historia de la Música y de la Danza</option>
+            <option>Historia del Arte</option>
+            <option>Imagen</option>
+            <option>Inglés</option>
+            <option>Italiano</option>
+            <option>Latín II</option>
+            <option>Lengua Castellana y Literatura</option>
+            <option>Lengua Catalana y Literatura</option>
+            <option>Lengua Gallega y Literatura</option>
+            <option>Lengua Vasca y Literatura</option>
+            <option>Lengua y Literatura (Valenciano)</option>
+            <option>Lenguaje y Práctica Musical</option>
+            <option>Literatura Castellana</option>
+            <option>Literatura Catalana</option>
+            <option>Literatura Dramática</option>
+            <option>Literatura Universal</option>
+            <option>Matemáticas Aplicadas a las Ciencias Sociales</option>
+            <option>Matemáticas II</option>
+            <option>Mecánica</option>
+            <option>Movimientos Culturales y Artísticos</option>
+            <option>Portugués</option>
+            <option>Química</option>
+            <option>Tecnología Industrial</option>
+            <option>Tecnología e Ingeniería</option>
+            <option>Técnicas de Expresión Gráfico Plástica</option>
+          </select>
+        </div>
 
+        <div class="form-group-inline">
+          <label class="form-label" for="selComunidad">Comunidad Autónoma</label>
+          <select class="form-select" id="selComunidad">
+            <option value="">-- Selecciona comunidad --</option>
+            <option>Andalucía</option>
+            <option>Aragón</option>
+            <option>Asturias</option>
+            <option>Cantabria</option>
+            <option>Castilla-La Mancha</option>
+            <option>Castilla y León</option>
+            <option>Cataluña</option>
+            <option>Comunidad Valenciana</option>
+            <option>Extremadura</option>
+            <option>Galicia</option>
+            <option>Islas Baleares</option>
+            <option>Islas Canarias</option>
+            <option>La Rioja</option>
+            <option>Madrid</option>
+            <option>Murcia</option>
+            <option>Navarra</option>
+            <option>País Vasco</option>
+          </select>
+        </div>
 
+        <div class="form-group-inline">
+          <label class="form-label" for="selAnio">Año</label>
+          <select class="form-select" id="selAnio">
+            <option value="">Todos</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+          </select>
+        </div>
+      </div>
 
+      <button class="btn btn-success btn-block" onclick="buscarExamenes()">
+        Buscar exámenes
+      </button>
+    </div>
 
+    <!-- Resultados -->
+    <div class="result-area" id="resultArea">
+      <div class="card">
+        <div class="results-header">
+          <h2 id="resultTitle">Resultados</h2>
+          <span class="badge-count" id="countBadge"></span>
+        </div>
+        <div class="exam-list" id="examList"></div>
+      </div>
+    </div>
 
-  </main>
+    <!-- Por qué practicar -->
+    <div class="card" style="margin-top: 0.5rem;">
+      <div class="card-title">Por qué practicar con exámenes reales</div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">🎯</div>
+          <p>Conoces la estructura y el tipo de preguntas que aparecen en tu comunidad.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">⏱</div>
+          <p>Mejoras la gestión del tiempo antes del día del examen real.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">📉</div>
+          <p>Reduces el estrés al familiarizarte con la dificultad habitual de cada asignatura.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🔁</div>
+          <p>Identificas patrones y preguntas frecuentes que se repiten cada año.</p>
+        </div>
+      </div>
 
-  <script src="js/pdf.js"></script>
-  <script src="js/examenes.js"></script>
+      <div class="contact-box">
+        ¿Tienes un examen oficial que no aparece en la web o has encontrado algún error?
+        Escríbenos a <a href="mailto:calculadoraebau@gmail.com">calculadoraebau@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="share-section">
+      <h2>¿Tus exámenes ya están listos?</h2>
+      <p>Comparte esta herramienta con tus compañeros para que también puedan preparar la EvAU 2026.</p>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <a href="/calculadora.html" class="btn btn-primary">Calcular mi nota</a>
+        <button class="btn btn-outline" onclick="navigator.share ? navigator.share({title:'Exámenes EvAU 2026', url: location.href}) : navigator.clipboard.writeText(location.href)">
+          Compartir página
+        </button>
+      </div>
+    </div>
+
+  </div>
+
   <footer>
-    <p>&copy; 2026 Calculadora EvAU - Todos los derechos reservados</p>
+    © 2026 Calculadora EvAU — Todos los derechos reservados
   </footer>
+
+  <script>
+    // Este array debe llenarse con tus datos reales de exámenes.
+    // Estructura: { asignatura, comunidad, anio, pdf (URL al archivo) }
+    // Por ahora genera resultados de ejemplo para demostrar la UI.
+    function buscarExamenes() {
+      const asig = document.getElementById('selAsignatura').value;
+      const com  = document.getElementById('selComunidad').value;
+      const anio = document.getElementById('selAnio').value;
+
+      if (!asig && !com) {
+        alert('Selecciona al menos una asignatura o comunidad autónoma.');
+        return;
+      }
+
+      // --- Reemplaza esta lógica con tu fuente de datos real ---
+      // Ejemplo: fetch a tu JSON o llamada a tu API/backend
+      const anios = anio ? [anio] : ['2025', '2024', '2023'];
+      const comunidades = com ? [com] : ['Madrid', 'Andalucía', 'Murcia'];
+      const asignaturas = asig ? [asig] : [];
+
+      const resultados = [];
+      anios.forEach(a => {
+        comunidades.forEach(c => {
+          if (asignaturas.length > 0) {
+            asignaturas.forEach(s => {
+              resultados.push({ asignatura: s, comunidad: c, anio: a, pdf: '#' });
+            });
+          } else {
+            resultados.push({ asignatura: asig || '(asignatura)', comunidad: c, anio: a, pdf: '#' });
+          }
+        });
+      });
+      // --- Fin de ejemplo ---
+
+      const list = document.getElementById('examList');
+      const area = document.getElementById('resultArea');
+
+      document.getElementById('resultTitle').textContent =
+        [asig, com, anio ? 'Año ' + anio : ''].filter(Boolean).join(' · ') || 'Todos los resultados';
+      document.getElementById('countBadge').textContent = resultados.length + ' exámenes';
+
+      if (resultados.length === 0) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <p>No se han encontrado exámenes con esos filtros.<br>Prueba con otra combinación.</p>
+          </div>`;
+      } else {
+        list.innerHTML = resultados.map(r => `
+          <div class="exam-row">
+            <div class="exam-icon">📄</div>
+            <div class="exam-info">
+              <div class="exam-title">${r.asignatura}</div>
+              <div class="exam-meta">${r.comunidad}</div>
+            </div>
+            <div class="exam-tags">
+              <span class="tag year">${r.anio}</span>
+              <span class="tag">${r.comunidad}</span>
+            </div>
+            <a class="exam-link" href="${r.pdf}" target="_blank" rel="noopener">
+              PDF →
+            </a>
+          </div>
+        `).join('');
+      }
+
+      area.classList.add('visible');
+      area.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
 </body>
 </html>
